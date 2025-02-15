@@ -1,0 +1,5 @@
+pandas
+matplotlib
+requests
+openpyxl
+lighthouse-py  # For website accessibility analysis (this is a comment)
