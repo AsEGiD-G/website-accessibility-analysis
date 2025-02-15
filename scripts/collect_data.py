@@ -5,10 +5,15 @@ import pandas as pd
 websites = ["https://www.example.com", "https://www.google.com"] # Add your target websites
 
 results = []
-for url in websites:
+for url in websites: [
+    "https://www.health.gov.et",  # Example Ethiopian Ministry of Health
+    "https://www.education.gov.et", # Example Ethiopian Ministry of Education
+    "https://www.finance.gov.et", # Example Ethiopian Ministry of Finance
+    # ... add other ministry website URLs here
+    ]
     try:
         cmd = f"lighthouse {url} --quiet --output=json --chrome-flags='--headless'"
-        output = subprocess.run(cmd, shell=True, capture_output=True, text=True, check=True) # check=True for errors
+        output = subprocess.run(cmd, shell=True, capture_output=True, text=True, check=True encoding='utf-8') # check=True for errors
         report = json.loads(output.stdout)
         score = report["categories"]["accessibility"]["score"] * 100
         results.append({"Website": url, "Accessibility Score": score})
